@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>js계산기</title>
+		<style>
+			table,
+			td,
+			th {
+				border: 1px solid #303030;
+				border-collapse: collapse;
+				font-size: 30px;
+				background-color: hsl(0, 0%, 94%);
+			}
+			table {
+				width: 400px;
+			}
+			table th {
+				padding: 40px;
+				text-align: right;
+			}
+			table td {
+				width: 100px;
+				padding: 20px 0;
+				text-align: center;
+			}
+			table td:hover {
+				background-color: #909090;
+			}
+			table td.operator {
+				background-color: #ffcc22;
+			}
+			table td.operator:hover {
+				background-color: #e2ad00;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="4" id="result">0</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" onclick="calculator.reset();">C</td>
+						<td colspan="2" onclick="calculator.calculate();">=</td>
+					</tr>
+					<tr>
+						<td onclick="calculator.setNum('7');">7</td>
+						<td onclick="calculator.setNum('8');">8</td>
+						<td onclick="calculator.setNum('9');">9</td>
+						<td onclick="calculator.setOp('/');" class="operator">/</td>
+					</tr>
+					<tr>
+						<td onclick="calculator.setNum('4');">4</td>
+						<td onclick="calculator.setNum('5');">5</td>
+						<td onclick="calculator.setNum('6');">6</td>
+						<td onclick="calculator.setOp('*');" class="operator">*</td>
+					</tr>
+					<tr>
+						<td onclick="calculator.setNum('1');">1</td>
+						<td onclick="calculator.setNum('2');">2</td>
+						<td onclick="calculator.setNum('3');">3</td>
+						<td onclick="calculator.setOp('-');" class="operator">-</td>
+					</tr>
+					<tr>
+						<td onclick="calculator.reverse();">+-</td>
+						<td onclick="calculator.setNum('0');">0</td>
+						<td onclick="calculator.setNum('.');">.</td>
+						<td onclick="calculator.setOp('+');" class="operator">+</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script>
+			var calculator = (function () {
+				var num1 = "";
+				var num2 = "";
+				var op = false;
+				var opType = "";
+				var result = 0;
+
+				return {
+					setNum: function (val) {
+						num2 = num2 + val;
+						console.log(num1, num2, val);
+						show(num2);
+					},
+					setOp: function (val) {
+						if (op) {
+							// 계산을 해야함
+							num1 = calculate(num1, num2, opType);
+							num2 = "";
+							opType = val;
+							console.log(num1, num2, val);
+							show(num1);
+						} else {
+							num1 = num2;
+							num2 = "";
+							op = true;
+							opType = val;
+							console.log(num1, num2, val);
+							show(num1);
+						}
+					},
+					reverse: function () {
+						num1 = num1 * -1;
+						num2 = num2 * -1;
+						if (op) {
+							show(num1);
+						} else {
+							show(num2);
+						}
+					},
+					reset: function () {
+						num1 = "";
+						num2 = "";
+						op = false;
+						opType = "";
+						result = 0;
+						show("0");
+					},
+					calculate: function () {
+						num1 = calculate(num1, num2, opType);
+						num2 = num1;
+						op = false;
+						console.log(num1, num2, opType);
+						show(num1);
+					},
+				};
+			})();
+
+			function calculate(num1, num2, opType) {
+				if (opType === "/") {
+					var result = Number(num1) / Number(num2);
+				} else if (opType === "*") {
+					var result = Number(num1) * Number(num2);
+				} else if (opType === "-") {
+					var result = Number(num1) - Number(num2);
+				} else if (opType === "+") {
+					var result = Number(num1) + Number(num2);
+				} else {
+					var result = 0;
+				}
+				return result;
+			}
+			function show(val) {
+				document.getElementById("result").innerHTML = val;
+			}
+
+			console.log(num1);
+
+		</script>
+	</body>
+</html>

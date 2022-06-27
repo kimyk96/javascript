@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>연락처</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="js/main.js"></script>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<header id="header">
+			<h1><a href="?">연락처</a></h1>
+		</header>
+		<main id="main">
+			<h2>연락처 추가</h2>
+			<ul id="listAdd" class="list">
+				<li>
+					<form id="contact1" class="person">
+						<div>
+							<label for="fileUpload">
+								<img id="uploadImg" src="" alt="눌러서 선택" />
+							</label>
+							<input type="file" id="fileUpload" name="photo" accept="image/png, image/jpeg, image/gif">
+						</div>
+						<div class="person_info">
+							<input disabled="" class="info_no" placeholder="고유번호" />
+							<input
+								id="addName"
+								type="text"
+								class="info_name"
+								name="name"
+								placeholder="이름"
+								required
+							/>
+							<input
+								id="addTel"
+								type="text"
+								class="info_tel"
+								name="tel"
+								placeholder="전화번호"
+								required
+							/>
+							<input
+								id="addAdd"
+								type="text"
+								class="info_address"
+								name="address"
+								placeholder="주소"
+								required
+							/>
+							<div class="info_btnarea">
+								<button type="button" class="info_add" onclick="postContact(); return false;">
+									추가
+								</button>
+							</div>
+						</div>
+					</form>
+				</li>
+				<!-- <li></li>
+				<li></li> -->
+			</ul>
+			<h2>연락처 리스트</h2>
+			<ul id="list" class="list"></ul>
+			<ul id="pagination"></ul>
+		</main>
+	</body>
+</html>

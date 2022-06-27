@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>자판기 만들기02 - 버튼 동작 만들기</title>
+	</head>
+	<body>
+		<h1>자판기</h1>
+		<div>
+			<h2>구매하기</h2>
+			<button onclick="moneyOut(2000)">커피(2,000원)</button>
+			<button onclick="moneyOut(1000)">콜라(1,000원)</button>
+			<button onclick="moneyOut(700)">물(700원)</button>
+		</div>
+		<div>
+			<h2>금액 투입</h2>
+			<button onclick="moneyIn(1000)">1,000원 넣기</button>
+			<button onclick="moneyIn(500)">500원 넣기</button>
+			<button onclick="moneyIn(100)">100원 넣기</button>
+		</div>
+		<div>현재 자판기안 금액 : <span id="machine"></span>원</div>
+
+		<script>
+			// 현재 자판기 안 금액
+			let machine = 0;
+			// 자판기 금액 보여주는 span
+			let result = document.getElementById("machine");
+
+			// 금액 투입
+			function moneyIn(money) {
+				// 새로운 잔액 = 잔액 + 투입액
+				machine = machine + money;
+				// 잔액 갱신
+				result.innerHTML = machine;
+			}
+
+			// 구매하기
+			function moneyOut(money) {
+				// 새로운 잔액 = 잔액 - 구매금액
+				machine = machine - money;
+				// 잔액 갱신
+				result.innerHTML = machine;
+			}
+		</script>
+	</body>
+</html>

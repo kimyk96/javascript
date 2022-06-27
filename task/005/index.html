@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>날씨앱</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/main.css" />
+		<script src="js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+		<script>
+			$(window).on("load", () => {
+				const url = new URL(location.href);
+				const city = {
+					lon: url.searchParams.get("lon"),
+					lat: url.searchParams.get("lat"),
+					name: url.searchParams.get("name"),
+					country: url.searchParams.get("country"),
+				};
+				getWeather(city);
+
+				$("#cityname").on("input", function () {
+					searchCity($("#cityname").val());
+				});
+				$("#cityname").on("click", function () {
+					docOpacity0();
+				});
+				$("main").on("click", function () {
+					docOpacity1();
+				});
+				$("#locationList").on("click", function () {
+					docOpacity1();
+				});
+			});
+		</script>
+		<style></style>
+	</head>
+	<body>
+		<header>
+			<h1><input type="text" id="cityname" /></h1>
+			<p class="today_date">금요일, 04 July</p>
+			<ul id="locationList"></ul>
+		</header>
+		<main>
+			<section id="breif">
+				<div>
+					<img src="img/Clear.gif" alt="" class="today_maingif" />
+					<p class="today_deg">
+						<span class="degree hidden">°</span>
+						<span class="number">22</span>
+						<span class="degree">°</span>
+					</p>
+					<p class="today_desc">맑음</p>
+				</div>
+			</section>
+			<section id="today">
+				<h2>오늘의 날씨</h2>
+				<div id="detail">
+					<div>
+						<p class="today_detailTitle">풍량</p>
+						<p class="today_detailDesc today_wind">15km/h</p>
+					</div>
+					<div>
+						<p class="today_detailTitle">구름양</p>
+						<p class="today_detailDesc today_cloud">70%</p>
+					</div>
+					<div>
+						<p class="today_detailTitle">습도</p>
+						<p class="today_detailDesc today_humidity">24%</p>
+					</div>
+				</div>
+				<div id="hourly">
+					<canvas id="tempChart" height="100"></canvas>
+					<ul></ul>
+				</div>
+			</section>
+			<section id="daily">
+				<h2>이번주 날씨</h2>
+				<ul>
+					<li>
+						<p class="daily_date strong">월</p>
+						<p class="daily_gif"><img src="img/Clear.gif" alt="" /></p>
+						<p class="daily_desc">sunny</p>
+						<p class="daily_max">+23°</p>
+						<p class="daily_min">+14°</p>
+					</li>
+					<li>
+						<p class="daily_date strong">화</p>
+						<p class="daily_gif"><img src="img/Clear.gif" alt="" /></p>
+						<p class="daily_desc">light Rain</p>
+						<p class="daily_max">+23°</p>
+						<p class="daily_min">+14°</p>
+					</li>
+					<li>
+						<p class="daily_date strong">수</p>
+						<p class="daily_gif"><img src="img/Clear.gif" alt="" /></p>
+						<p class="daily_desc">light Rain</p>
+						<p class="daily_max">+23°</p>
+						<p class="daily_min">+14°</p>
+					</li>
+				</ul>
+			</section>
+			<section id="sun">
+				<h2>일출과 일몰</h2>
+				<div id="sun_outer">
+					<div id="sun_inner"></div>
+					<div id="sun_label">
+						<p class="sunrise">6:37</p>
+						<p class="sunset">6:37</p>
+					</div>
+				</div>
+			</section>
+			<section id="uv">
+				<h2>자외선</h2>
+				<svg class="radial-progress" data-percentage="30" viewBox="0 0 80 80">
+					<circle class="incomplete" cx="40" cy="40" r="35"></circle>
+					<circle
+						class="complete"
+						cx="40"
+						cy="40"
+						r="35"
+						style="stroke-dashoffset: 39.58406743523136"
+					></circle>
+					<text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">
+						30%
+					</text>
+				</svg>
+			</section>
+		</main>
+		<footer></footer>
+
+		<script>
+			// 데이터 포인트에 값표기
+			Chart.register(ChartDataLabels);
+			Chart.defaults.set("plugins.datalabels", { color: "#303030" });
+			// chart.js init
+			const ctx = document.getElementById("tempChart").getContext("2d");
+			const myChart = new Chart(ctx, {
+				type: "line",
+				data: {
+					// labels: [],
+					datasets: [
+						{
+							// data: [],
+							borderWidth: 1,
+							color: "#6667ab",
+						},
+					],
+				},
+				options: {
+					responsive: false,
+					plugins: {
+						legend: { display: false },
+						tooltip: {
+							enabled: false,
+						},
+					},
+					elements: {
+						point: {
+							radius: 3,
+							backgroundColor: "#efefef",
+							borderColor: "#efefef",
+						},
+					},
+					scales: {
+						x: {
+							grid: {
+								display: false,
+							},
+						},
+						y: {
+							grid: {
+								display: false,
+							},
+							ticks: {
+								display: false,
+							},
+						},
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

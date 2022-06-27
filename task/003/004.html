@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>자판기 만들기04 - UX개선 ( 사용자 편의 )</title>
+		<style>
+			/* 맨처음은 잔액이 0원이니깐 다 못삼 > 빨강 */
+			#coffee,
+			#coke,
+			#water {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>자판기</h1>
+		<div>
+			<h2>구매하기</h2>
+			<button onclick="moneyOut(2000)" id="coffee">커피(2,000원)</button>
+			<button onclick="moneyOut(1000)" id="coke">콜라(1,000원)</button>
+			<button onclick="moneyOut(700)" id="water">물(700원)</button>
+		</div>
+		<div>
+			<h2>금액 투입</h2>
+			<button onclick="moneyIn(1000)">1,000원 넣기</button>
+			<button onclick="moneyIn(500)">500원 넣기</button>
+			<button onclick="moneyIn(100)">100원 넣기</button>
+		</div>
+		<div>현재 자판기안 금액 : <span id="machine"></span>원</div>
+
+		<script>
+			// 현재 자판기 안 금액
+			let machine = 0;
+			// 자판기 금액 보여주는 span
+			const result = document.getElementById("machine");
+
+			// 금액 투입
+			function moneyIn(money) {
+				// 새로운 잔액 = 잔액 + 투입액
+				machine = machine + money;
+				// 잔액 갱신
+				result.innerHTML = machine;
+				// 이름 색상 갱신
+				color();
+			}
+
+			// 구매하기
+			function moneyOut(money) {
+				if (machine < money) {
+					// 잔액으로 음료수를 못사는 경우
+					alert("잔액이 부족합니다!");
+				} else {
+					// 잔액으로 음료수를 살 수 있는 경우
+					alert("구매완료!");
+					// 새로운 잔액 = 잔액 - 구매금액
+					machine = machine - money;
+				}
+				// 잔액 갱신
+				result.innerHTML = machine;
+				// 이름 색상 갱신
+				color();
+			}
+
+			// 이름 색상 갱신 - 구매 가능하면 파란색, 금액 부족하면 빨간색
+			function color() {
+				const coffee = document.getElementById("coffee");
+				const coke = document.getElementById("coke");
+				const water = document.getElementById("water");
+
+				if (machine >= 2000) {
+					// 다 살 수 있음
+					coffee.style.color = "blue";
+					coke.style.color = "blue";
+					water.style.color = "blue";
+				} else {
+					if (machine >= 1000) {
+						// 콜라, 물 가능
+						coke.style.color = "blue";
+						water.style.color = "blue";
+					} else {
+						if (machine >= 700) {
+							// 물 가능
+							water.style.color = "blue";
+						} else {
+							// 다 불가
+							coffee.style.color = "red";
+							coke.style.color = "red";
+							water.style.color = "red";
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

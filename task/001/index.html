@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>js계산기</title>
+		<style>
+			table,
+			td,
+			th {
+				border: 1px solid #303030;
+				border-collapse: collapse;
+			}
+			table {
+				width: 800px;
+			}
+			table th {
+				padding: 40px 0;
+			}
+			table td {
+				width: 200px;
+				padding: 40px 0;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="4" id="result" data-value="">0</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" onclick="reset();">AC</td>
+						<td colspan="2" onclick="calculate();">=</td>
+					</tr>
+					<tr>
+						<td onclick="set('7');">7</td>
+						<td onclick="set('8');">8</td>
+						<td onclick="set('9');">9</td>
+						<td onclick="set('/');">/</td>
+					</tr>
+					<tr>
+						<td onclick="set('4');">4</td>
+						<td onclick="set('5');">5</td>
+						<td onclick="set('6');">6</td>
+						<td onclick="set('*');">*</td>
+					</tr>
+					<tr>
+						<td onclick="set('1');">1</td>
+						<td onclick="set('2');">2</td>
+						<td onclick="set('3');">3</td>
+						<td onclick="set('-');">-</td>
+					</tr>
+					<tr>
+						<td onclick="set('pm');">+-</td>
+						<td onclick="set('0');">0</td>
+						<td onclick="set('.');">.</td>
+						<td onclick="set('+');">+</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script>
+            function set(val) {
+                var result = document.getElementById("result");
+				result.dataset.value = result.dataset.value + val;
+				result.innerHTML = result.dataset.value;
+			}
+			function calculate() {
+                var result = document.getElementById("result");
+				var final = eval(result.dataset.value);
+                // eval()방식은 권장되지 않는다. 그냥 간단해서 사용해봄
+				// 마음에 안듬 다른 방식 찾아보기
+				result.innerHTML = final;
+				result.dataset.value = "";
+			}
+			function reset() {
+				var result = document.getElementById("result");
+				result.innerHTML = "0";
+				result.dataset.value = "";
+			}
+		</script>
+	</body>
+</html>
