@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>014</title>
+	</head>
+	<body>
+        <script>
+            // 객체: 속성과 메소드의 집합
+			// 내장(built-in) 객체: js가 기s본 제공하는 객체
+			// 함수를 작성할 때 기능을 세분화하여 작성
+            const ar = [77,66,88,99,100];
+
+
+			function absolute(number) {
+				if (typeof number == "number") {
+					if (number >= 0) {
+						return number;
+					} else {
+						return -number;
+					}
+				} else {
+					return NaN;
+				}
+			}
+			function power(number) {
+				return number ** 2;
+			}
+			function add(num1, num2) {
+				return num1 + num2;
+			}
+			function mul(num1, num2) {
+				return num1 * num2;
+			}
+            function avg(array){
+                let sum = 0;
+                for(const score of array){
+                    sum += score;
+                }
+                let avg = sum/array.length;
+                return avg;
+            }
+		</script>
+	</body>
+</html>

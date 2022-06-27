@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>array</title>
+		<script>
+			const array = [];
+			let index = 0;
+			function addChina1() {
+				var china1 = document.getElementById("china1").value;
+				array[index] = china1;
+				index++;
+				console.log(array);
+			}
+			function addChina2() {
+				var china2 = document.querySelector("input[name='china2']:checked").value;
+				array[index] = china2;
+				index++;
+				console.log(array);
+			}
+		</script>
+	</head>
+	<body>
+		<select name="china1" id="china1">
+			<option value="짜장">짜장</option>
+			<option value="짬뽕">짬뽕</option>
+			<option value="볶음밥">볶음밥</option>
+		</select>
+		<button onclick="addChina1();">넣기</button>
+
+		<label><input value="탕수육" type="radio" name="china2" />탕수육</label>
+		<label><input value="깐풍기" type="radio" name="china2" />깐풍기</label>
+		<label><input value="라조기" type="radio" name="china2" />라조기</label>
+		<button onclick="addChina2()">넣기</button>
+	</body>
+</html>

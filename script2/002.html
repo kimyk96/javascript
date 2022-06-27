@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>002</title>
+	</head>
+	<body>
+		<script>
+			function getscore() {
+				var score = prompt("점수 : ");
+				if (score) {
+					score = Number(score);
+					if (score) {
+						if (score >= 90) {
+							alert("수");
+						} else if (score >= 80) {
+							alert("우");
+						} else if (score >= 70) {
+							alert("미");
+						} else if (score >= 60) {
+							alert("양");
+						} else {
+							alert("가");
+						}
+					} else {
+						alert("숫자만 입력가능");
+						getscore();
+					}
+				} else {
+					alert("입력 필수");
+					getscore();
+				}
+			}
+			getscore();
+		</script>
+	</body>
+</html>

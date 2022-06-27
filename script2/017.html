@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>원 계산기</title>
+		<script>
+			window.onload = function () {
+				const radiusInput = document.getElementById("radius");
+				const circumInput = document.getElementById("circum");
+				const areaInput = document.getElementById("area");
+				const pi = Math.PI;
+
+				radiusInput.oninput = function () {
+					const r = radiusInput.value;
+					circumInput.value = (2 * pi * r).toFixed(2);
+					areaInput.value = (pi * r * r).toFixed(2);
+				};
+				circumInput.oninput = function () {
+					const c = circumInput.value;
+					radiusInput.value = r = (c / (2 * pi)).toFixed(2);
+					areaInput.value = (r ** 2 * pi).toFixed(2);
+				};
+				areaInput.oninput = function () {
+					const a = areaInput.value;
+					radiusInput.value = r = (Math.sqrt(a / pi)).toFixed(2);
+					circumInput.value = (r * 2 * pi).toFixed(2);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<span>반지름 : </span><input type="number" id="radius" /><br>
+		<span>원둘레 : </span><input type="number" id="circum" /><br>
+		<span>원면적 : </span><input type="number" id="area" /><br><hr>
+	</body>
+</html>

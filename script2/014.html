@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>익명 함수 & 삼항</title>
+	</head>
+	<body>
+		<input type="text" id="value" />
+		<button id="three">3의배수?</button>
+		<button id="five">5의배수?</button>
+		<hr />
+		<span id="result"></span>
+
+		<script>
+			const value = document.getElementById("value");
+			const three = document.getElementById("three");
+			const five = document.getElementById("five");
+			const result = document.getElementById("result");
+
+			three.onclick = function () {
+				let num = value.value;
+				result.innerText = num % 3 == 0 ? "3의 배수" : "3의 배수 아님";
+			};
+			five.onclick = function () {
+				let num = value.value;
+				result.innerText = num % 5 == 0 ? "5의 배수" : "5의 배수 아님";
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>009</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul id="target">안녕하세요!</ul>
+    <script>
+        window.onload = function(){
+
+            
+            const p1 = document.getElementById("target");
+            p1.style.color = "red";
+
+            // 제이쿼리
+            const p2 = $("#target");
+            
+            // 메소드를 그냥 막 계속 연결해서 씀 => 메소드체이닝
+            p2.css('color','#303030').css('font-size','25px');
+            p2.append('<li>짜장면</li>').append('<li>짬뽕</li>').append('<li>탕수육</li>').append('<li>보끙ㅁ밥</li>')
+            
+            // 생성된 요소는 순차에 영향을 받는다.
+            $("#target li").css('color', 'red')
+
+
+
+
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BMI</title>
+		<script>
+			window.onload = function () {
+				const height = document.getElementById("height");
+				const weight = document.getElementById("weight");
+				const result = document.getElementById("result");
+
+				oninput = function () {
+					if (height.value && weight.value) {
+						let bmi = weight.value / (height.value / 100) ** 2;
+						let bmiTest =
+							bmi >= 25
+								? `<strong class="red">과체중</strong>입니다`
+								: `<strong class="blue">정상</strong>입니다`;
+						result.innerHTML = `BMI 지수는 : ${bmi.toFixed(2)}이고 ${bmiTest}`;
+					} else {
+						if (!height.value) {
+							result.innerText = `키 입력은 필수입니다.`;
+						} else {
+							result.innerText = `체중 입력은 필수입니다.`;
+						}
+					}
+				};
+			};
+		</script>
+		<style>
+			.red {
+				color: red;
+			}
+			.blue {
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<span>신장 : </span><input type="number" step="0.1" id="height" placeholder="cm" /><br />
+		<span>체중 : </span><input type="number" step="0.1" id="weight" placeholder="kg" />
+		<hr />
+		<span id="result"></span>
+	</body>
+</html>

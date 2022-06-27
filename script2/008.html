@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>008</title>
+	</head>
+	<body>
+		<input type="text" id="value" />
+		<button onclick="calculate();">제곱하기</button>
+		<div>제곱값 : <span id="result"></span></div>
+		<script>
+			function calculate() {
+				let value = document.getElementById("value").value;
+				let result = value * value;
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>

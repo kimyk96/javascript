@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>012</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			$(window).on("load", function () {
+				// 70 이상만 출력하기
+				const scores = [77, 88, 65, 80];
+				let sum = 0;
+
+				$("body").append(`<ul id="list"></ul>`);
+				$("body").append(`<div id="sum"></div>`);
+
+				for (const score of scores) {
+					if (score >= 80) {
+						$(`<li>${score} 점</li>`).appendTo("#list").css("color", "blue");
+						sum += score;
+					} else {
+						$(`<li>${score} 점</li>`).appendTo("#list").css("color", "red");
+					}
+				}
+
+				$("#sum").text(`80이상 점수들의 합계는 : ${sum}점`);
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

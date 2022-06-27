@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>007</title>
+</head>
+<body>
+    <script>
+        // 객체의 배열
+        const ar = [
+            {kor:77, eng:80},
+            {kor:75, eng:70},
+            {kor:80, eng:90}
+        ];
+
+        let korSum = korAvg = 0;
+        let engSum = engAvg = 0;
+        let sumSum = sumAvg = 0;
+
+        for( const element of ar ){
+            korSum += element.kor;
+            engSum += element.eng;
+        }
+
+        korAvg = korSum / ar.length;
+        engAvg = engSum / ar.length;
+        sumSum = korSum + engSum;
+        sumAvg = (korAvg + engAvg) / 2
+
+        console.log(`국어 합계 : ${korSum}점, 평균 : ${korAvg}점`);
+        console.log(`영어 합계 : ${engSum}점, 평균 : ${engAvg}점`);
+        console.log(`전체 합계 : ${sumSum}점, 평균 : ${sumAvg}점`);
+
+    </script>
+</body>
+</html>

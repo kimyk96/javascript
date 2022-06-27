@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>018</title>
+    <script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+    <style>
+        #page{ width : 400px; marin : 0 auto; }
+        #canvas{ height : 400px; margin : 0 auto; background-color : red; }
+        #position{ height : 50px; margin : 0 auto; background-color : blue; color : #ffffff; font-weight : bolder; text-align : center; line-height : 50px;}
+    </style>
+    <script>
+        $(window).on("load", ()=>{
+            $("#canvas").mousemove((e)=>{
+                $("#position").text("좌표 : " + e.pageX + "," + e.pageY);
+                if(e.pageX > 180 && e.pageX < 220 && e.pageY > 180 && e.pageY < 220){
+                    $("#position").text("찾음");
+                }
+
+                // 마우스 무브가 언제 생길 지 몰라
+                // 함수를 만들어서 제이쿼리에 등록
+                // 이벤트 핸들러는 프로그래머가 만들고 js 가 위탁 실행 => callback
+
+            })
+
+            let x = $('<div id="jason">1111</div>')
+            let a = $('#canvas')
+            console.log(a)
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="page">
+        <div id="canvas">
+
+        </div>
+        <div id="position">
+
+        </div>
+    </div>
+</body>
+</html>

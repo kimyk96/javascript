@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>004</title>
+	</head>
+	<body>
+		<script>
+			const array = [77, 88, 99, 100];
+
+			// for of 반복문                        // es6 문법
+			for (const item of array) {
+				console.log(item); // 값 출력됨     // 가급적 읽기전용 모드로 작업하는 습관 들이기.
+			}
+			console.log("==========");
+
+			// for each 반목문                      // es5 문법
+			array.forEach((item) => {
+				console.log(item); // 값 출력됨
+			});
+			console.log("==========");
+
+			// for in 반복문
+			for (const index in array) {
+				console.log(index); // 인덱스 출력됨
+			}
+			console.log("==========");
+
+			// for 반목문
+			for (let i = 0; i < array.length; i++) {
+				console.log(i); // 인덱스 출력됨
+			}
+			console.log("==========");
+		</script>
+	</body>
+</html>

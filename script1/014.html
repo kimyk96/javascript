@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>014</title>
+	</head>
+	<body>
+		<div>남학생의 숫자<span>11</span></div>
+		<div>여학생의 숫자<span>7</span></div>
+		<div>총인원<span></span></div>
+
+		<script>
+			let male = document.getElementsByTagName("span")[0].innerHTML;
+			let female = document.getElementsByTagName("span")[1].innerHTML;
+			document.getElementsByTagName("span")[2].innerHTML = parseInt(male) + parseInt(female);
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>화살표 함수</title>
+	</head>
+	<body>
+		<script>
+			var elements = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+			// var elements = [8, 6, 7, 9] 로 바꾸기
+
+			// 기존 문법
+			elements.map(function (element) { return element.length; });
+
+			// 화살표 문법
+			elements.map((element) => { return element.length; }); 
+
+			// 파라미터 하나는 괄호 생략 가능
+			elements.map(element => { return element.length; }); 
+
+			// 유일하게 return 만 있으면 {} 생략도 가능
+			elements.map((element) => element.length);
+		</script>
+	</body>
+</html>

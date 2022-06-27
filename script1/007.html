@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>007 - documnet</title>
+	</head>
+	<body>
+		<p id="example">#example</p>
+		<script>
+            document.getElementById("example").innerHTML = "변경할 텍스트";
+			document.querySelector("#example").innerHTML = "변경할 텍스트2";
+            document.getElementsByTagName("p")[0].innerHTML = "변경할 텍스트3";
+			console.log(document.querySelector("#example").innerHTML);
+		</script>
+	</body>
+</html>

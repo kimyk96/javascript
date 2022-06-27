@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=, initial-scale=1.0" />
+		<title>001</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	</head>
+	<body>
+		<script>
+			// 자바스크립트를 작성하는 영역
+			// 어디에 작성해도 상관없당
+			alert("alert 함수");
+			swal({
+				title: "alert",
+				text: "닫?",
+				icon: "warning",
+			});
+		</script>
+
+		<div id="page">dddddddd</div>
+
+		<script>
+			// 웹브라우저는 부품의 집합입니다 = 컴포넌트
+			// 부품들이 함수들을 가집니다.
+
+			// ***** 부품 리스트
+			// location     : 주소창
+			// history      : 앞으로 뒤로
+			// document     : 문서
+			// navigator    : 웹브라우저 정보 ( 브라우저 버전/호환성 )
+			// console      : 개발자도구의 콘솔
+			// window       : 가장 제일 객체 ? 윈도우 자체 ! 이 안에 나머지 객체들 다 있음.
+
+			window.alert("alert 함수");
+			window.console.log("Hello World!");
+
+			// window는 생략 가능...! 어쩌피 window 부터여서
+			alert("alert 함수");
+			console.log("Hello World!");
+
+			var elem = window.document.getElementById("page").innerHTML;
+			alert(elem);
+		</script>
+	</body>
+</html>

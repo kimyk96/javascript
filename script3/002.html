@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>021</title>
+	</head>
+	<body>
+		<script>
+			const obj = {
+				name: "홍길동",
+				func1: function () {
+					// 일반 함수
+					console.log(this); // object
+				},
+				func2: () => {
+					// 화살표 함수
+					console.log(this); // window 브라우저 전역객체
+					// this를 가지지 않습니다.
+					// arguments를 지원하지 않습니다.
+					// new와 함께 호출할 수 없습니다.
+				},
+			};
+			// 둘의 차이점은?
+			obj.func1(); // this = object
+			obj.func2(); // this = window(브라우저 전역객체)
+		</script>
+	</body>
+</html>

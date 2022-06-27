@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>005</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<style>
+			.list {
+			}
+			.list input {
+				padding: 10px;
+			}
+			input[type="number"]:hover::-webkit-inner-spin-button {
+				width: 30px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="list">
+			<label for="item1">소고기</label>
+			<input type="number" id="item1" value="1" />
+		</div>
+		<div class="list">
+			<label for="item2">우유</label>
+			<input type="number" id="item2" value="1" />
+		</div>
+		<div class="list">
+			<label for="item3">양파</label>
+			<input type="number" id="item3" value="1" />
+		</div>
+
+		<div id="grandParent">
+			<div id="parent">
+				<div id="child"></div>
+			</div>
+		</div>
+
+		<script>
+						$("input").on("input", function () {
+							console.log(this);
+							// 이벤트 캡쳐링 (capturing)
+							// 이벤트가 발생한 곳을 찾는다. 넓은 곳 > 좁은 곳으로 찾는다
+							// grand > parent > child
+
+							// 이벤트 버블링 (bubbling)
+							// 한 요소에 이벤트가 발생하면,
+							// 이 요소에 할당된 핸들러가 동작하고,
+							// 이어서 부모 요소의 핸들러가 동작합니다.
+							// 가장 최상단의 조상 요소를 만날 때까지 이 과정이 반복되면서 요소 각각에 할당된 핸들러가 동작합니다.
+							// 버블링을 중단하려면 이벤트 객체의 메서드인 event.stopPropagation()를 사용하면 됩니다.
+
+							// 기존 속성 블락 preventDefault
+							//
+
+						});
+						$(".target").click(function () {
+							const _this = this;
+							console.log(_this.dataset.no);
+
+							// $.ajax('http://sample.bmaster.kro.kr/contacts').done(function(){
+							//     console.log(this)
+							//     console.log(_this)
+							// })
+						});
+		</script>
+	</body>
+</html>

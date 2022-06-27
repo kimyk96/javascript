@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div id="target1" data-index="데이터 정보">과자1</div>
+    <div id="target2" data-index="2">과자2</div>
+    <div id="target3" data-index="3">과자3</div>
+    <div id="target4" data-index="4">과자4</div>
+    <div id="target5" data-index="5">과자5</div>
+    
+    <script>
+        const div = document.querySelector('#target1');
+        // const div = '<div id="target1" data-index="데이터 정보">과자1</div>' ; 하지만 이제 스트링이 아니라 object 인 
+        alert(div.dataset.index);
+    </script>
+</body>
+</html>

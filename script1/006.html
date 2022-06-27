@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>006 - 웹브라우저 조작</title>
+	</head>
+	<body>
+		<h1>브라우저 화면 조작하기</h1>
+		<a href="005.html">005로(링크)</a>
+		<p onclick="history.go(-1);">뒤로가기</p>
+		<p onclick="location.reload();">새로고침</p>
+		<p onclick="alert(location.search);">쿼리스트링 확인하기</p>
+
+		<script>
+			function naver1() {
+				location.href = "https://www.naver.com";
+				// 네이버로 가지만 href 는 함수가 아니라 location의 속성이다.
+			}
+			function naver2() {
+				location.replace("https://www.naver.com");
+				// 네이버로 간다. location 객체 중에서 replace 라는 함수로 페이지를 이동한다
+			}
+
+			// 기능은 같았지만 함수와 속성의 차이가 있다.
+
+			// 현재 브라우저(location영역) 주소
+			console.log(location.href);     // 주소 가져오기
+			console.log(location.search);   // 쿼리 스트링 가져오기 ?부터 가져옴
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>010</title>
+	</head>
+	<body onload="load();">
+		<script>
+			function load() {
+				let img = document.createElement("img");
+				img.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+				img.alt = "bulb";
+				img.width = "400";
+				document.body.appendChild(img);
+
+				let button = document.createElement("button");
+				button.innerHTML = "켜기";
+				button.onclick = function () {
+					var img = document.querySelector("img");
+					var button = document.getElementById("button");
+					if (button.value == 1) {
+						img.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+						button.value = 0;
+						button.innerHTML = "켜기";
+					} else {
+						img.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+						button.value = 1;
+						button.innerHTML = "끄기";
+					}
+				};
+				button.value = 0;
+				button.id = "button";
+				document.body.appendChild(button);
+			}
+		</script>
+	</body>
+</html>

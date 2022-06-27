@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>004 - 연산자</title>
+	</head>
+	<body>
+		<script>
+			console.log(3 + 5); //  8   number
+			console.log("3" + "5"); //  35  string
+			console.log(3 + "5"); //  35  string
+			console.log("3" + 5); //  35  string
+			console.log(3 - 5); //  -2  number
+			console.log("3" - "5"); //  -2  number 이거 왜 숫자로 연산했지? 이걸 안되게 만든게 타입 스크립트
+			console.log(typeof ("3" - "5")); //  number
+
+            // 자바에는 타입언어가 없다.
+            // 자바스크립트는 상황에 따라 변수를 자가조정한다, 에러를 수용한다, 나중에 프로젝트가 커지면 머징이나 관리가 어렵다 에러를 넘어가기 때문에
+		</script>
+	</body>
+</html>

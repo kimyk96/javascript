@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>003 - stringType</title>
+	</head>
+	<body>
+		<script>
+			console.log(typeof "hello"); // ES5
+			console.log(typeof "hello");
+			console.log(typeof `hello`); // ES6
+
+			var value = "456";
+			var a = "123" + value + "789\ntest";
+			var b = `123${value}789
+							test`; // `` 선언 방식은 변수안에 엔터가 포함된다 또한 변수도 저렇게 넣을 수 있다.
+
+			console.log(b);
+		</script>
+	</body>
+</html>

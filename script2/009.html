@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>009</title>
+	</head>
+	<body onload="init();">
+		<div id="count"></div>
+		<button onclick="increase();">증가</button>
+		<button onclick="decrease();">감소</button>
+
+		<script>
+            let count = 0;
+            let element = document.getElementById("count");
+
+            function init(){
+                element.innerHTML = count;
+            };
+			function increase() {
+				count++;
+				element.innerHTML = count;
+			};
+            function decrease() {
+				count--;
+				element.innerHTML = count;
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>013</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<script>
+			$(window).on("load", function () {
+				// 객체의 배열
+				const ar = [
+					{ kor: 77, eng: 80 },
+					{ kor: 75, eng: 70 },
+					{ kor: 80, eng: 90 },
+				];
+				$("body").append(`<ul id="target"></ul>`);
+				$("body").append(`<div id="sum"></div>`);
+				$("#target").append(`<h1>영어점수</h1>`);
+
+				// 영어 점수를 ul에 출력
+				// 영어 점수의 합계를 출력
+				let sumEng = 0;
+				for (const ob of ar) {
+					if(ob.eng>=80){
+						$(`<li>${ob.eng}</li>`).appendTo("#target").css('color','red');
+					}else{
+						$(`<li>${ob.eng}</li>`).appendTo("#target");
+					}
+					sumEng += ob.eng;
+				}
+				$("#sum").append(`<p>합계는 ${sumEng}점 입니다.</p>`);
+			});
+		</script>
+	</head>
+	<body></body>
+</html>

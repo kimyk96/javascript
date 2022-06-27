@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>015</title>
+	</head>
+	<body>
+		<div><span>83.5</span></div>
+		<div><span></span></div>
+
+		<div><span>35</span></div>
+		<div><span></span></div>
+
+		<script>
+			let num1 = document.getElementsByTagName("span")[0].innerHTML;
+			document.getElementsByTagName("span")[1].innerHTML =
+				Math.floor(parseInt(num1) / 3.3) + "평";
+
+			let num2 = document.getElementsByTagName("span")[2].innerHTML;
+			document.getElementsByTagName("span")[3].innerHTML =
+				parseInt(num2) * (9 / 5) + 32 + "화씨";
+		</script>
+	</body>
+</html>

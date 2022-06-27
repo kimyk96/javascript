@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>010</title>
+	</head>
+	<body>
+		<div>
+			생일
+			<form onsubmit="return bday();">
+				<input type="date" id="year" />
+				<button>제출</button>
+			</form>
+		</div>
+
+		<script>
+			function bday() {
+				var birth = new Date(document.getElementById("year").value);
+				let today = new Date();
+				// let birth = new Date("1996-07-04");
+				let age = (today - birth) / (1000 * 60 * 60 * 24 * 365);
+				age = Math.floor(age);
+				alert("만" + age + "살 입니다");
+			}
+		</script>
+	</body>
+</html>

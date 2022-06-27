@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>국어점수 영어점수</title>
+		<script>
+			window.onload = function () {
+				let korInput = document.getElementById("korean");
+				let engInput = document.getElementById("english");
+				let result = document.getElementById("result");
+
+				korInput.oninput = function () {
+					evaluate();
+				};
+				engInput.oninput = function () {
+					evaluate();
+				};
+				function evaluate() {
+					let korScore = parseInt(korInput.value);
+					let engScore = parseInt(engInput.value);
+
+					if (korScore > 100 || engScore > 100) {
+						message = "만점은 백점입니다";
+					} else {
+						if (korScore && engScore) {
+							message =
+								korScore >= 70 && engScore >= 70
+									? "통과하셨습니다."
+									: "재시험 대상입니다.";
+						} else {
+							if (!korScore) {
+								message = "국어점수를 입력해 주세요";
+							} else {
+								message = "영어점수를 입력해 주세요";
+							}
+						};
+					};
+					result.innerText = message;
+				};
+			};
+		</script>
+		<style>
+			input:invalid + span:after {
+				content: "✖";
+				padding-left:5px;
+			}
+
+			input:valid + span:after {
+				content: "✓";
+				padding-left:5px;
+				margin-top : 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span>두 과목 다 70점 이상이면 통과.</span>
+			<hr />
+			<span>국어점수 : </span><input type="number" id="korean" min="0" max="100" step="5" required/><span></span><br />
+			<span>영어점수 : </span><input type="number" id="english" min="0" max="100" step="5" required/><span></span>
+			<hr />
+			<span>결과 : </span><span id="result">점수를 입력해주세요</span>
+		</div>
+	</body>
+</html>

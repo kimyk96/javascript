@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>020</title>
+	</head>
+	<body>
+		<script>
+			// 객체는 어떤 정보를 표현하기 위해 데이터(속성)와 함수(메소드)를 모았다
+			const student = {
+				name: "홍길동",
+				age: 20,
+				kor: 77,
+				eng: 80,
+                // 메소드 추가하는 방법 1
+				printTotal: function () {
+					return sum = this.kor + this.eng;
+				},
+			};
+            // 메소드 추가하는 방법 2
+            student.printTotal2 = function(){
+                return this.kor + this.eng;
+            }
+			alert(student.printTotal());
+			alert(student.printTotal2());
+		</script>
+	</body>
+</html>

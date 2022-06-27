@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 핸들러</title>
+    <script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+</head>
+<body>
+    <button id="target1">1</button>
+    <button id="target2">2</button>
+    <button id="target3">3</button>
+    <button id="target4">4</button>
+    <button id="target5">5</button>
+
+    <script>
+        // 콜백 은 이벤트 발생하면 실행
+
+        function onclick(){
+            alert("1")
+        }
+        document.getElementById("target2").onclick = function(){
+            alert('dom level 0 event handler');
+        }
+        document.getElementById("target3").addEventListener('click',function(){
+            alert('dom level 2 이벤트 처리');
+        })
+        $('#target4').click(function(){
+            alert('4');
+        })
+        // $('#target5').on('click', function(){
+        //     alert('5');
+        // })
+      
+        let test = function(e){
+            console.log(e)
+        }
+
+        $('#target5').on('click', test)
+
+
+        
+
+
+    </script>
+</body>
+</html>

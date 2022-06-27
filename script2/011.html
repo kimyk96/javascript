@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>array</title>
+		<script>
+			const array = [];
+			let index = 0;
+			function addFruit() {
+				var fruit = document.getElementById("fruit").value;
+				array[index] = fruit;
+				index++;
+				console.log(array);
+			}
+		</script>
+	</head>
+	<body>
+		<select name="fruit" id="fruit">
+			<option value="사과">사과</option>
+			<option value="바나나">바나나</option>
+			<option value="수박">수박</option>
+		</select>
+		<button onclick="addFruit();">넣기</button>
+	</body>
+</html>
