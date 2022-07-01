@@ -251,7 +251,7 @@ function pagination(pageNo, pageSize, totalCount) {
     }
 }
 
-// 페이징 처리 - 현재 페이지 가운데
+// 페이징 처리 - 현재 페이지 가운데 - 지금은 사용안함
 function pagination1(pageno, pagesize, total) {
     const $page = $("#pagination");
     const totalPage = Math.ceil(total / pagesize);
