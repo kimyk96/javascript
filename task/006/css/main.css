@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+*{ margin : 0; padding : 0; box-sizing: border-box; clear:none; list-style: none; transition : 0.3s;font-family :Arial, Helvetica, sans-serif}
+body{ }
+#header{ width : 100%; padding : 20px 40px; display : flex; justify-content: space-between; align-items: center; }
+#header h1{ color : #303030; }
+#header h1 a{ text-decoration: none; color : #303030; }
+#header h1 a:visited{color : #303030;}
+#header div a{ border-radius : 20px; padding : 5px 10px; margin : 0 2px; border : 2px solid #303030; text-decoration : none; color : #303030; font-weight : bold;}
+#header div a:visited{ color : #303030; }
+#header div a.btn_write:hover{ background-color : #303030; color : #ffffff; }
+#header div a.btn_edit{ border : none; color : green; }
+#header div a.btn_edit:hover{ text-decoration: underline; }
+#header div a.btn_delete{ border : none; color : red; }
+#header div a.btn_delete:hover{ text-decoration: underline; }
+
+#main{ width : 100%; padding: 0 30px; display : flex; flex-direction: column; justify-content: center; align-items: center; }
+#main section { width : 100%; }
+#main #list{ width : 100%; display : flex; flex-direction : row;  flex-wrap: wrap;}
+#main #list li{ position : relative; top: 0; width : 25%; margin : 10px 0; display : flex; justify-content: center; align-items: center; }
+#main #list li:hover{ position : relative; top: -10px; }
+#main #list li a{ width : 90%; height : 320px; margin : 10px 0; border-radius : 5px; background-color : #efefef; color : #303030; text-decoration : none; display : flex; flex-direction:column; justify-content: space-between; align-items:center; }
+#main #list li a:visited{ color : #303030; }
+#main #list li a div.img{ width : 100%; object-fit: cover; overflow : hidden; display:flex; justify-content: center; border-radius : 5px 5px 0 0; }
+#main #list li a div.img img{ width : 100%; }
+#main #list li a div.info{ flex-grow :1; width : 100%;  padding : 10px; display : flex; flex-direction: column; justify-content: start; }
+#main #list li a div.info p{ width : 100%; text-align : left; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; }
+#main #list li a div.info p.title{ font-weight : bold; padding : 10px 0 0 0; }
+#main #list li a div.info p.writeTime{ font-size : 10px; color : #303030; padding : 5px 0; }
+#main #list li a div.bottom{ width : 100%; padding : 10px 15px ; border-top : 1px solid #d9d9d9;  display : flex; align-items :center; justify-content: space-between; }
+#main #list li a div.bottom p.writer{ font-size : 13px; }
+#main #list li a div.bottom p.readcnt{ font-size : 13px; }
+
+#main article{ width : 100%; min-height : 100%; padding : 50px 0; display :flex; flex-direction: column; justify-content: center; align-items: center; }
+#main article div{ width : 800px; }
+#main article div .title{ border : none; border-bottom : 3px solid #ffffff; color : #303030; width : 100%; font-size : 50px; font-weight : bold; padding : 15px 0; margin : 15px 0; overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    outline : none;
+}
+#main article div .title:focus{ border : none; border-bottom : 3px solid #303030; }
+#main article div label{ font-size : 16px; }
+#main article div .writer{ border:none; border-bottom : 1px solid #fff; outline: none; font-size : 16px;  padding : 5px; margin : 5px 0; font-weight : bold; display : inline-block; }
+#main article div .writer:focus{ border-bottom : 1px solid #303030; }
+#main article div p.writeTime{ display : inline-block; padding : 0 10px; font-size : 13px; color : #909090; font-weight : light; }
+#main article div p.readCnt{ float : right; }
+#main article div #fileUpload{ padding : 20px 0 30px 0; }
+#main article div .content{ padding : 10px; border : none; width : 100%; resize: none; font-size : 20px; line-height : 30px; color : #303030;}
+#main article div img{ width : 100%; padding-top : 20px; display : block; }
+#main article button{ font-size : 20px; background-color : #fff; border-radius : 20px; padding : 5px 15px; margin : 30px 0; border : 2px solid #303030; text-decoration : none; color : #303030; font-weight : bold; }
+#main article button:hover{ background-color : #303030; color : #fff; }
+
+#main #pagination{ width : 30%; padding : 60px 0; margin : 0 auto; display : flex; justify-content: space-between; } 
+/* #main #pagination li{  } */
+#main #pagination li a{ text-decoration : none; color : #303030; padding : 5px;}
+#main #pagination li a:visited{color : #303030;}
+#main #pagination li a.now{ font-weight : bolder; border-bottom : 1px solid #303030;}
+
+#footer{ background-color : #efefef; width : 100%; padding : 10px 0; text-align : center; }

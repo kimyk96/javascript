@@ -1,7 +1,6 @@
 // 날씨 파싱
 function getWeather(city) {
     docOpacity1()
-
     var url = new URL(location.href);
     if (city.lat === null) {
         city = { lon: 126.7052, lat: 37.456, name: 'Incheon', country: 'KR' }

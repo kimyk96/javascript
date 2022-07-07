@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>게시물 작성</title>
+        <script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+        <script src="./js/main.js"></script>
+		<link rel="stylesheet" href="./css/main.css">
+		<script>
+            $(function(){
+				// getHTMls
+				init();
+
+                // file 변경 감지 - 업로드 이미지 표시
+                $("#fileUpload").change(function () {
+                    let $img = $("#uploadImg");
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $img.attr("src", e.target.result);
+                        $img.attr("alt", "uploadImg");
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                });
+
+            });
+
+		</script>
+	</head>
+	<body>
+		<header id="header"></header>
+		<nav id="nav"></nav>
+		<main id="main">
+            <article>
+                <form id="form">
+                    <div>
+                        <input type="text" placeholder="제목" class="title" name="title" required/>
+                        <label for="writer">작성자 : </label>
+                        <input type="text" placeholder="작성자" class="writer" name="writer" required/>
+                        <label for="fileUpload"><img id="uploadImg" src="" alt="눌러서 선택" /></label>
+                        <input type="file" id="fileUpload" name="attachment" accept="image/png, image/jpeg, image/gif">
+                        <textarea required name="content" placeholder="오늘은 날씨가 참 좋네요!" onkeydown="resize()" class="content" cols="30" rows="10"></textarea>
+                    </div>
+                </form>
+                <button onclick="postArticle('POST', 0, 0);">작성하기</button>
+            </article>
+		</main>
+		<aside id="aside"></aside>
+		<footer id="footer"></footer>
+    </body>
+</html>

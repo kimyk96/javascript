@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>게시물</title>
+        <script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+        <script src="./js/main.js"></script>
+		<link rel="stylesheet" href="./css/main.css">
+		<script>
+            $(function(){
+				// getHTMls
+				init();
+
+                // getUrlSearchParams
+                const CURRENT_URL = new URL(location.href);
+                const SEARCH = CURRENT_URL.searchParams;
+                const bno = SEARCH.get('bno') ? SEARCH.get('bno') : 1;
+                const pageno = SEARCH.get('pageno') ? SEARCH.get('pageno') : 1;
+
+				// getArticle
+                getArticle(bno, pageno);
+            });
+		</script>
+	</head>
+	<body>
+		<header id="header"></header>
+		<nav id="nav"></nav>
+		<main id="main">
+			<section id="section"></section>
+		</main>
+		<aside id="aside"></aside>
+		<footer id="footer"></footer>
+    </body>
+</html>
