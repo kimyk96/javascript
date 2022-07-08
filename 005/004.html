@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>004</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<script>
+			$(async function () {
+				try {
+					const response = await $.ajax(
+						'http://192.168.0.34:8081/board/11111'
+					);
+					console.log(response);
+				} catch (e) {
+					console.log(e.status + " " + e.responseText);
+				}
+			});
+		</script>
+	</body>
+</html>

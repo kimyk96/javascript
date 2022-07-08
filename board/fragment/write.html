@@ -1,0 +1,39 @@
+<div id="write">
+  <h2>새 글 작성하기</h2>
+	<div class="form-floating mb-3 mt-3">
+		<input
+			type="text"
+			class="form-control title"
+			placeholder="제목을 입력해주세요"
+			name="title"
+		/>
+		<label for="title">제목</label>
+	</div>
+	<div class="form-floating mb-3 mt-3">
+		<input
+			type="text"
+			class="form-control writer"
+			placeholder="작성자를 입력해주세요"
+			name="writer"
+		/>
+		<label for="writer">작성자</label>
+	</div>
+	<div class="">
+		<input
+			type="file"
+			class="form-control attachment"
+			id="fileUpload"
+			placeholder="이미지를 삽입해주세요"
+			name="attachment"
+		/>
+	</div>
+	<div class="form-floating">
+		<textarea
+			class="form-control content"
+			name="content"
+			placeholder="내용"
+		></textarea>
+		<label for="content">내용</label>
+	</div>
+  <button id ="btn_write" onclick="postArticle();">작성하기</button>
+</div>
